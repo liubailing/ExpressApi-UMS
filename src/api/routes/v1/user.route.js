@@ -24,7 +24,7 @@ router
    * @apiDescription Get a list of users
    * @apiVersion 1.0.0
    * @apiName ListUsers
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission admin
    *
    * @apiHeader {String} Authorization   User's access token
@@ -47,7 +47,7 @@ router
    * @apiDescription Create a new user
    * @apiVersion 1.0.0
    * @apiName CreateUser
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission admin
    *
    * @apiHeader {String} Authorization   User's access token
@@ -79,7 +79,7 @@ router
    * @apiDescription Get logged in user profile information
    * @apiVersion 1.0.0
    * @apiName UserProfile
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission user
    *
    * @apiHeader {String} Authorization   User's access token
@@ -102,7 +102,7 @@ router
    * @apiDescription Get user information
    * @apiVersion 1.0.0
    * @apiName GetUser
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission user
    *
    * @apiHeader {String} Authorization   User's access token
@@ -124,7 +124,7 @@ router
    * @apiDescription Replace the whole user document with a new one
    * @apiVersion 1.0.0
    * @apiName ReplaceUser
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission user
    *
    * @apiHeader {String} Authorization   User's access token
@@ -155,7 +155,7 @@ router
    * @apiDescription Update some fields of a user document
    * @apiVersion 1.0.0
    * @apiName UpdateUser
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission user
    *
    * @apiHeader {String} Authorization   User's access token
@@ -185,7 +185,7 @@ router
    * @apiDescription Delete a user
    * @apiVersion 1.0.0
    * @apiName DeleteUser
-   * @apiGroup User
+   * @apiGroup 用户管理
    * @apiPermission user
    *
    * @apiHeader {String} Authorization   User's access token

@@ -1,11 +1,11 @@
 const express = require('express');
 const validate = require('express-validation');
 const controller = require('../../controllers/auth.controller');
-const oAuthLogin = require('../../middlewares/auth').oAuth;
+// const oAuthLogin = require('../../middlewares/auth').oAuth;
 const {
   login,
   register,
-  oAuth,
+  // oAuth,
   refresh,
 } = require('../../validations/auth.validation');
 
@@ -13,10 +13,10 @@ const router = express.Router();
 
 /**
  * @api {post} v1/auth/register Register
- * @apiDescription Register a new user
+ * @apiDescription 注册用户
  * @apiVersion 1.0.0
- * @apiName Register
- * @apiGroup Auth
+ * @apiName 注册
+ * @apiGroup 权限
  * @apiPermission public
  *
  * @apiParam  {String}          email     User's email
@@ -46,10 +46,10 @@ router.route('/register')
 
 /**
  * @api {post} v1/auth/login Login
- * @apiDescription Get an accessToken
+ * @apiDescription 登陆后获取 accessToken
  * @apiVersion 1.0.0
  * @apiName Login
- * @apiGroup Auth
+ * @apiGroup 权限
  * @apiPermission public
  *
  * @apiParam  {String}         email     User's email
@@ -69,8 +69,8 @@ router.route('/register')
  * @apiSuccess  {String}  user.nik            User's nik
  * @apiSuccess  {Date}    user.createdAt      Timestamp
  *
- * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
- * @apiError (Unauthorized 401)  Unauthorized     Incorrect email or password
+ * @apiError (Bad Request 400)  ValidationError  参数不正确
+ * @apiError (Unauthorized 401)  Unauthorized    账户或密码不对
  */
 router.route('/login')
   .post(validate(login), controller.login);
@@ -81,7 +81,7 @@ router.route('/login')
  * @apiDescription Refresh expired accessToken
  * @apiVersion 1.0.0
  * @apiName RefreshToken
- * @apiGroup Auth
+ * @apiGroup 权限
  * @apiPermission public
  *
  * @apiParam  {String}  email         User's email
@@ -102,49 +102,6 @@ router.route('/refresh-token')
 /**
  * TODO: POST /v1/auth/reset-password
  */
-
-
-/**
- * @api {post} v1/auth/facebook Facebook Login
- * @apiDescription Login with facebook. Creates a new user if it does not exist
- * @apiVersion 1.0.0
- * @apiName FacebookLogin
- * @apiGroup Auth
- * @apiPermission public
- *
- * @apiParam  {String}  access_token  Facebook's access_token
- *
- * @apiSuccess {String}  tokenType     Access Token's type
- * @apiSuccess {String}  accessToken   Authorization Token
- * @apiSuccess {String}  refreshToken  Token to get a new accessToken after expiration time
- * @apiSuccess {Number}  expiresIn     Access Token's expiration time in miliseconds
- *
- * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
- * @apiError (Unauthorized 401)  Unauthorized    Incorrect access_token
- */
-router.route('/facebook')
-  .post(validate(oAuth), oAuthLogin('facebook'), controller.oAuth);
-
-/**
- * @api {post} v1/auth/google Google Login
- * @apiDescription Login with google. Creates a new user if it does not exist
- * @apiVersion 1.0.0
- * @apiName GoogleLogin
- * @apiGroup Auth
- * @apiPermission public
- *
- * @apiParam  {String}  access_token  Google's access_token
- *
- * @apiSuccess {String}  tokenType     Access Token's type
- * @apiSuccess {String}  accessToken   Authorization Token
- * @apiSuccess {String}  refreshToken  Token to get a new accpessToken after expiration time
- * @apiSuccess {Number}  expiresIn     Access Token's expiration time in miliseconds
- *
- * @apiError (Bad Request 400)  ValidationError  Some parameters may contain invalid values
- * @apiError (Unauthorized 401)  Unauthorized    Incorrect access_token
- */
-router.route('/google')
-  .post(validate(oAuth), oAuthLogin('google'), controller.oAuth);
 
 
 module.exports = router;
