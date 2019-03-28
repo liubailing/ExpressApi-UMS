@@ -5,12 +5,9 @@ const RefreshToken = require('../models/refreshToken.model');
 const { jwtExpirationInterval } = require('../../config/vars');
 
 /**
- * 
- * 
- * 
-* Returns a formated object with tokens
-* @private
-*/
+ * Returns a formated object with tokens
+ * @private
+ */
 function generateTokenResponse(user, accessToken) {
   const tokenType = 'Bearer';
   const refreshToken = RefreshToken.generate(user).token;
