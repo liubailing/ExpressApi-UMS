@@ -98,15 +98,12 @@ yarn validate
 pm2 logs
 ```
 
-## 相关文档
+## 发布API doc文档
 
 ```bash
 # generate and open api documentation
 yarn docs
-```
-
-## Docker
-
+```    
 
 ## 发布
 
@@ -129,7 +126,3 @@ yarn deploy
 or
 sh ./deploy.sh
 ```
-
-## License
-
-[MIT License](README.md) - [Muhammad Zuhriyan Sauqi](https://github.com/zuhriyansauqi)
